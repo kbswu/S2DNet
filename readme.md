@@ -8,3 +8,7 @@ To run the code, you need to install the required packages. You can do this by r
 
 ```
 pip install torch==2.0.1+cu117 torchmetrics==1.3.0 torchsummary==1.5.1 torchvision==0.15.2+cu117 tqdm==4.65.0 xlrd==2.0.1 monai==1.2.0
+
+## Data Accessibility
+
+The SFCD dataset can be downloaded from [Google Drive](https://drive.google.com/file/d/1x1WdpeFKZZxeZ1jRr7qKmEFWDTTUwSKf/view?usp=drive_link).
