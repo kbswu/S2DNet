@@ -12,3 +12,7 @@ pip install torch==2.0.1+cu117 torchmetrics==1.3.0 torchsummary==1.5.1 torchvisi
 ## Data Accessibility
 
 The SFCD dataset can be downloaded from [Google Drive](https://drive.google.com/file/d/1x1WdpeFKZZxeZ1jRr7qKmEFWDTTUwSKf/view?usp=drive_link).
+
+## Contact
+
+This is a clean version for peer review and will be further refined and updated. If you have any questions or suggestions, please contact us at [wunan@ieee.org](mailto:wunan@ieee.org) or submit an issue.
