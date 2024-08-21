@@ -52,6 +52,11 @@ class MILossGlobal(nn.Module):
             nn.Sigmoid()
         )
 
+    def compute_dis_loss(self, shape):
+        shape_pred = self.discriminator(self.pool(shape).squeeze())
+        return -torch.log(shape_pred).mean()
+
+
     def forward(self, shape, app):
         shape_pred = self.discriminator(self.pool(shape).squeeze())
         app_pred = self.discriminator(self.pool(app).squeeze())

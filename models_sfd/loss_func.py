@@ -19,6 +19,6 @@ def build_dicefocal_seg_loss(dataset_name):
         softmax=True,
         gamma=2.0,
         jaccard=True,
-        focal_weight=focal_weight,
+        focal_weight=focal_weight,  # one can use this parameter to assign different weights to sea fog, but expriementally, it is not useful
     )
     return loss_func

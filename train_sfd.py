@@ -23,7 +23,7 @@ def train_generic_seg_models_one_epoch(
         train_optimizer_seg.zero_grad()
         optimizer_mi.zero_grad()
         train_model_seg.train()
-        criterion_seg_2.train()
+        criterion_seg_2.eval()
         if image_mode == "train_degrade":
             train_images, train_labels = data['degraded_image'][:, inc_choice, :, :].cuda(), data[
                 'degraded_label'].cuda()
@@ -37,9 +37,14 @@ def train_generic_seg_models_one_epoch(
         loss_seg_2 = criterion_seg_2(seg_pred, feats)
         loss = loss_seg_1 + loss_seg_2
         running_loss_seg_2 += loss_seg_2.item()
-
         loss.backward()
         train_optimizer_seg.step()
+
+        with torch.no_grad():
+            shape_feat, _ = torch.chunk(feats.detach(), 2, dim=1)
+        criterion_seg_2.train()
+        loss_dis = criterion_seg_2.global_discriminator.compute_dis_loss(shape_feat)
+        loss_dis.backward()
         optimizer_mi.step()
         running_loss += loss.item()
         running_loss_seg_1 += loss_seg_1.item()
@@ -49,11 +54,6 @@ def train_generic_seg_models_one_epoch(
                               'loss_seg_2': running_loss_seg_2 / (i + 1)})
         else:
             pbar.set_postfix({'loss': running_loss / (i + 1), 'loss_seg_1': running_loss_seg_1 / (i + 1)})
-
-        # save model
-        # if i % 1 == 0:
-        #     torch.save(train_model_seg.state_dict(), f'D:/MS_Seg/S2DNet_EXAM/{inc_string}.pth')
-
 
 if __name__ == "__main__":
 
