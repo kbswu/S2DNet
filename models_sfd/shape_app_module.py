@@ -2,6 +2,8 @@
     Time: 8/31/23
     Name: shape_app_module.py
     Author: Wu Nan
+    Adapted from: Su et. al, Lightweight Pixel Difference Networks for Efficient Visual Representation Learning / Pixel Difference Networks for Efficient Edge Detection, 
+    TPAMI23, ICCV22, https://github.com/hellozhuo/pidinet
 """
 
 import math
