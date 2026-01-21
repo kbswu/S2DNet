@@ -1,6 +1,6 @@
 # Deep Spatial-Spectral Difference Network with Heterogeneous Feature Mutual Learning for Sea Fog Detection
 
-This repository contains the code and data for the paper **"Deep Spatial-Spectral Difference Network with Heterogeneous Feature Mutual Learning for Sea Fog Detection"**. This version is specifically prepared for peer review.
+This repository contains the code and data for the paper **"Deep Spatial-Spectral Difference Network with Heterogeneous Feature Mutual Learning for Sea Fog Detection"**. 
 
 ## Installation
 
